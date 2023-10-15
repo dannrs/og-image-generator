@@ -11,17 +11,6 @@ const barlowBold = fetch(
   new URL('../../assets/fonts/Barlow-Bold.ttf', import.meta.url)
 ).then(res => res.arrayBuffer())
 
-function capitalize(str: string): string {
-  if (str.length === 0) {
-    return str
-  }
-
-  const firstChar = str.charAt(0).toUpperCase()
-  const restOfString = str.slice(1)
-
-  return firstChar + restOfString
-}
-
 export async function GET(req: Request): Promise<ImageResponse> {
   try {
     const fontRegular = await interRegular
@@ -33,7 +22,6 @@ export async function GET(req: Request): Promise<ImageResponse> {
       values.title.length > 140
         ? `${values.title.substring(0, 140)}...`
         : values.title
-    const route = capitalize(values.route)
     const { mode } = values
     const paint = mode === 'dark' ? '#CECDC3' : '#100F0F'
 
@@ -75,7 +63,7 @@ export async function GET(req: Request): Promise<ImageResponse> {
               tw='flex justify-center items-start text-4xl font-bold pl-2 pt-4 pb-2'
               style={{ fontFamily: 'Barlow', fontWeight: 'normal' }}
             >
-              {values.route === 'home' ? '' : `${route} - `} {title}
+              {title}
             </div>
             <div
               tw='flex text-[1.68rem]'
