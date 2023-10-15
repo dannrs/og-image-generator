@@ -2,7 +2,6 @@ import * as z from 'zod'
 
 export const ogBlogImageSchema = z.object({
   title: z.string(),
-  type: z.string(),
   mode: z.enum(['light', 'dark']).default('dark')
 })
 

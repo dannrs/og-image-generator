@@ -72,7 +72,7 @@ export async function GET(req: Request): Promise<ImageResponse> {
               tw='flex text-xl uppercase font-bold tracking-tight'
               style={{ fontFamily: 'Inter', fontWeight: 'normal' }}
             >
-              {values.type}
+              Blog Post
             </div>
             <div
               tw='flex leading-[1.1] text-[80px] font-bold'
